@@ -1,96 +1,310 @@
-<!DOCTYPE html> <html lang="en"> <head> <meta charset="UTF-8" /> <meta name="viewport" content="width=device-width, initial-scale=1.0" /> <title>Foundation</title> <style> @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap');
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-body {
-  margin: 0;
-  font-family: 'Orbitron', sans-serif;
-  background: #0a0a0a;
-  color: #e0e0e0;
-}
+    <title>Foundation | Exceed Reality</title>
 
-.container {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 40px 20px;
-}
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
 
-h1 {
-  text-align: center;
-  font-size: 48px;
-  font-weight: 700;
-  color: #00eaff;
-  margin-bottom: 50px;
-  text-shadow: 0 0 10px #00eaff;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.profile {
-  background: #111;
-  border: 1px solid #1f1f1f;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  transition: 0.3s;
-}
+        body {
+            background: #050505;
+            color: #ffffff;
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+        }
 
-.profile:hover {
-  border-color: #00eaff;
-  box-shadow: 0 0 15px #00eaff;
-}
+        /* NAVIGATION */
+        nav {
+            width: 100%;
+            padding: 28px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+        }
 
-.name {
-  font-size: 28px;
-  font-weight: 600;
-  color: #00eaff;
-}
+        .logo {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
 
-.tag {
-  font-size: 18px;
-  opacity: 0.8;
-  margin-top: 5px;
-}
+        .nav-link {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: .7;
+            transition: .25s;
+        }
 
-.role {
-  font-size: 20px;
-  margin-top: 10px;
-  color: #fff;
-  font-weight: 600;
-}
+        .nav-link:hover {
+            opacity: 1;
+        }
 
-</style> </head> <body> <div class="container"> <h1>Foundation</h1>
+        /* HERO */
+        .hero {
+            padding: 110px 7% 70px;
+            text-align: center;
+        }
 
-<div class="profile">
-  <div class="name">Kryptic</div>
-  <div class="tag">@krypticfnx</div>
-  <div class="role">Founder</div>
-</div>
+        .hero-small {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 18px;
+        }
 
-<div class="profile">
-  <div class="name">Salz</div>
-  <div class="tag">@salzmgmt</div>
-  <div class="role">Founder</div>
-</div>
+        h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(65px, 10vw, 130px);
+            line-height: .85;
+            font-weight: 900;
+            letter-spacing: -2px;
+            text-transform: uppercase;
+        }
 
-<div class="profile">
-  <div class="name">Linx</div>
-  <div class="tag">@linx3fn</div>
-  <div class="role">Founder</div>
-</div>
+        .hero-line {
+            width: 55px;
+            height: 3px;
+            background: #ffffff;
+            margin: 35px auto 0;
+        }
 
-<div class="profile">
-  <div class="name">Oztix</div>
-  <div class="tag">@oztixmgmt</div>
-  <div class="role">Co-Owner</div>
-</div>
+        /* PROFILES */
+        .profiles {
+            width: 86%;
+            max-width: 1250px;
+            margin: 0 auto 100px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
 
-<div class="profile">
-  <div class="name">Coz</div>
-  <div class="tag">@coz365</div>
-  <div class="role">Owner</div>
-</div>
+        .profile {
+            position: relative;
+            min-height: 250px;
+            background: #0b0b0b;
+            border: 1px solid rgba(255,255,255,0.08);
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            transition: transform .3s ease, border-color .3s ease;
+        }
 
-<div class="profile">
-  <div class="name">Bxndz</div>
-  <div class="tag">@ceobxndz</div>
-  <div class="role">CEO</div>
-</div>
+        .profile::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: #ffffff;
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform .3s ease;
+        }
 
-</div> </body> </html>
+        .profile:hover {
+            transform: translateY(-6px);
+            border-color: rgba(255,255,255,0.25);
+        }
+
+        .profile:hover::before {
+            transform: scaleX(1);
+        }
+
+        .number {
+            position: absolute;
+            top: 22px;
+            right: 25px;
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 55px;
+            font-weight: 800;
+            color: rgba(255,255,255,0.045);
+        }
+
+        .role {
+            color: #8b8b8b;
+            text-transform: uppercase;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 8px;
+        }
+
+        .name {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 43px;
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: .95;
+        }
+
+        .username {
+            margin-top: 10px;
+            color: #777;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        /* FOOTER */
+        footer {
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 30px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #555;
+            font-size: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 850px) {
+            .profiles {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            nav {
+                padding: 22px 6%;
+            }
+
+            .hero {
+                padding: 80px 6% 50px;
+            }
+
+            .profiles {
+                width: 88%;
+                grid-template-columns: 1fr;
+            }
+
+            .profile {
+                min-height: 220px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">EDR</div>
+
+        <a class="nav-link" href="index.html">
+            Back Home
+        </a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-small">The people behind the organization</div>
+
+        <h1>Foundation</h1>
+
+        <div class="hero-line"></div>
+    </section>
+
+    <section class="profiles">
+
+        <!-- KRYPTIC -->
+        <div class="profile">
+            <div class="number">01</div>
+
+            <div class="role">Founder</div>
+
+            <div class="name">Kryptic</div>
+
+            <div class="username">@krypticfnx</div>
+        </div>
+
+        <!-- SALZ -->
+        <div class="profile">
+            <div class="number">02</div>
+
+            <div class="role">Founder</div>
+
+            <div class="name">Salz</div>
+
+            <div class="username">@salzmgmt</div>
+        </div>
+
+        <!-- LINX -->
+        <div class="profile">
+            <div class="number">03</div>
+
+            <div class="role">Founder</div>
+
+            <div class="name">Linx</div>
+
+            <div class="username">@linx3fn</div>
+        </div>
+
+        <!-- OZTIX -->
+        <div class="profile">
+            <div class="number">04</div>
+
+            <div class="role">Co-Owner</div>
+
+            <div class="name">Oztix</div>
+
+            <div class="username">@oztixmgmt</div>
+        </div>
+
+        <!-- COZ -->
+        <div class="profile">
+            <div class="number">05</div>
+
+            <div class="role">Owner</div>
+
+            <div class="name">Coz</div>
+
+            <div class="username">@coz365</div>
+        </div>
+
+        <!-- BXNDZ -->
+        <div class="profile">
+            <div class="number">06</div>
+
+            <div class="role">CEO</div>
+
+            <div class="name">Bxndz</div>
+
+            <div class="username">@ceobxndz</div>
+        </div>
+
+    </section>
+
+    <footer>
+        <span>Exceed Reality</span>
+        <span>© 2026 All Rights Reserved</span>
+    </footer>
+
+</body>
+</html>
+```
+
