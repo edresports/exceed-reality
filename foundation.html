@@ -7,13 +7,26 @@
 
     <title>Foundation | Exceed Reality</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap');
+
+        /* =========================================
+           RESET
+        ========================================= */
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -23,286 +36,656 @@
             min-height: 100vh;
         }
 
-        /* NAVIGATION */
-        nav {
+
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
+        .navbar {
             width: 100%;
-            padding: 28px 7%;
+            height: 90px;
+
+            padding: 0 7%;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+
             border-bottom: 1px solid rgba(255,255,255,0.08);
+
+            background: rgba(5,5,5,0.96);
+
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo {
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 28px;
-            font-weight: 800;
-            letter-spacing: 2px;
-        }
 
-        .nav-link {
+            font-size: 30px;
+            font-weight: 900;
+
+            letter-spacing: 3px;
+
             color: #ffffff;
+
             text-decoration: none;
-            font-size: 12px;
-            font-weight: 600;
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            padding: 11px 20px;
+
+            border: 1px solid rgba(255,255,255,0.12);
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-size: 10px;
+            font-weight: 700;
+
             letter-spacing: 2px;
+
             text-transform: uppercase;
-            opacity: .7;
-            transition: .25s;
+
+            transition: all 0.25s ease;
         }
 
-        .nav-link:hover {
-            opacity: 1;
+        .back-button:hover {
+            background: #ffffff;
+            color: #050505;
+
+            border-color: #ffffff;
         }
 
-        /* HERO */
+
+        /* =========================================
+           HERO
+        ========================================= */
+
         .hero {
-            padding: 110px 7% 70px;
+            padding: 120px 7% 80px;
+
             text-align: center;
         }
 
-        .hero-small {
+        .hero-label {
+            margin-bottom: 20px;
+
+            color: #888888;
+
             font-size: 11px;
             font-weight: 700;
+
             letter-spacing: 5px;
+
             text-transform: uppercase;
-            color: #888;
-            margin-bottom: 18px;
         }
 
-        h1 {
+        .hero-title {
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: clamp(65px, 10vw, 130px);
-            line-height: .85;
+
+            font-size: clamp(70px, 12vw, 150px);
+
             font-weight: 900;
-            letter-spacing: -2px;
+
+            line-height: 0.82;
+
+            letter-spacing: -3px;
+
             text-transform: uppercase;
         }
 
         .hero-line {
             width: 55px;
             height: 3px;
+
+            margin: 38px auto 0;
+
             background: #ffffff;
-            margin: 35px auto 0;
         }
 
-        /* PROFILES */
+        .hero-description {
+            max-width: 550px;
+
+            margin: 28px auto 0;
+
+            color: #777777;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           PROFILE GRID
+        ========================================= */
+
         .profiles {
             width: 86%;
             max-width: 1250px;
-            margin: 0 auto 100px;
+
+            margin: 0 auto 120px;
+
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
+
             gap: 18px;
         }
 
+
+        /* =========================================
+           PROFILE CARD
+        ========================================= */
+
         .profile {
             position: relative;
-            min-height: 250px;
+
+            min-height: 270px;
+
+            padding: 32px;
+
             background: #0b0b0b;
+
             border: 1px solid rgba(255,255,255,0.08);
-            padding: 30px;
+
             display: flex;
+
             flex-direction: column;
+
             justify-content: flex-end;
+
             overflow: hidden;
-            transition: transform .3s ease, border-color .3s ease;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                background 0.3s ease;
         }
+
+
+        /* Top hover line */
 
         .profile::before {
             content: "";
+
             position: absolute;
+
             top: 0;
             left: 0;
+
             width: 100%;
             height: 3px;
+
             background: #ffffff;
+
             transform: scaleX(0);
+
             transform-origin: left;
-            transition: transform .3s ease;
+
+            transition: transform 0.3s ease;
         }
 
+
+        /* Background glow */
+
+        .profile::after {
+            content: "";
+
+            position: absolute;
+
+            width: 200px;
+            height: 200px;
+
+            right: -100px;
+            top: -100px;
+
+            border-radius: 50%;
+
+            background: rgba(255,255,255,0.025);
+
+            transition: transform 0.4s ease;
+        }
+
+
+        /* Hover */
+
         .profile:hover {
-            transform: translateY(-6px);
+            transform: translateY(-7px);
+
             border-color: rgba(255,255,255,0.25);
+
+            background: #0e0e0e;
         }
 
         .profile:hover::before {
             transform: scaleX(1);
         }
 
-        .number {
+        .profile:hover::after {
+            transform: scale(1.4);
+        }
+
+
+        /* =========================================
+           PROFILE NUMBER
+        ========================================= */
+
+        .profile-number {
             position: absolute;
-            top: 22px;
+
+            top: 20px;
             right: 25px;
+
             font-family: 'Barlow Condensed', sans-serif;
-            font-size: 55px;
-            font-weight: 800;
+
+            font-size: 70px;
+
+            font-weight: 900;
+
+            line-height: 1;
+
             color: rgba(255,255,255,0.045);
+
+            user-select: none;
         }
 
-        .role {
-            color: #8b8b8b;
-            text-transform: uppercase;
-            font-size: 10px;
-            font-weight: 700;
-            letter-spacing: 3px;
+
+        /* =========================================
+           PROFILE ROLE
+        ========================================= */
+
+        .profile-role {
+            position: relative;
+            z-index: 2;
+
             margin-bottom: 8px;
-        }
 
-        .name {
-            font-family: 'Barlow Condensed', sans-serif;
-            font-size: 43px;
-            font-weight: 800;
+            color: #888888;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
             text-transform: uppercase;
-            line-height: .95;
         }
 
-        .username {
-            margin-top: 10px;
-            color: #777;
+
+        /* =========================================
+           PROFILE NAME
+        ========================================= */
+
+        .profile-name {
+            position: relative;
+            z-index: 2;
+
+            font-family: 'Barlow Condensed', sans-serif;
+
+            font-size: 48px;
+
+            font-weight: 800;
+
+            line-height: 0.9;
+
+            letter-spacing: -0.5px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =========================================
+           USERNAME
+        ========================================= */
+
+        .profile-username {
+            position: relative;
+            z-index: 2;
+
+            margin-top: 11px;
+
+            color: #666666;
+
             font-size: 13px;
+
             font-weight: 500;
         }
 
-        /* FOOTER */
-        footer {
+
+        /* =========================================
+           FOOTER
+        ========================================= */
+
+        .footer {
+            width: 86%;
+            max-width: 1250px;
+
+            margin: 0 auto;
+
+            padding: 30px 0;
+
             border-top: 1px solid rgba(255,255,255,0.08);
-            padding: 30px 7%;
+
             display: flex;
+
             justify-content: space-between;
+
             align-items: center;
-            color: #555;
-            font-size: 10px;
-            letter-spacing: 1px;
+
+            color: #555555;
+
+            font-size: 9px;
+
+            font-weight: 600;
+
+            letter-spacing: 2px;
+
             text-transform: uppercase;
         }
 
-        @media (max-width: 850px) {
+
+        /* =========================================
+           TABLET
+        ========================================= */
+
+        @media (max-width: 900px) {
+
             .profiles {
                 grid-template-columns: repeat(2, 1fr);
             }
+
         }
 
-        @media (max-width: 550px) {
-            nav {
-                padding: 22px 6%;
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                height: 75px;
+
+                padding: 0 6%;
+            }
+
+            .logo {
+                font-size: 25px;
+            }
+
+            .back-button {
+                padding: 9px 14px;
+
+                font-size: 9px;
             }
 
             .hero {
-                padding: 80px 6% 50px;
+                padding: 90px 6% 60px;
+            }
+
+            .hero-title {
+                font-size: 75px;
+            }
+
+            .hero-label {
+                font-size: 9px;
+
+                letter-spacing: 3px;
             }
 
             .profiles {
                 width: 88%;
+
                 grid-template-columns: 1fr;
+
+                gap: 15px;
+
+                margin-bottom: 80px;
             }
 
             .profile {
-                min-height: 220px;
+                min-height: 235px;
+
+                padding: 27px;
             }
 
-            footer {
+            .profile-name {
+                font-size: 42px;
+            }
+
+            .footer {
+                width: 88%;
+
                 flex-direction: column;
+
                 gap: 10px;
+
                 text-align: center;
             }
+
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <nav>
-        <div class="logo">EDR</div>
 
-        <a class="nav-link" href="index.html">
-            Back Home
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
+
+    <nav class="navbar">
+
+        <!-- Change EDR to your preferred logo/text -->
+        <a href="index.html" class="logo">
+            EDR
         </a>
+
+        <a href="index.html" class="back-button">
+            ← Back
+        </a>
+
     </nav>
 
-    <section class="hero">
-        <div class="hero-small">The people behind the organization</div>
 
-        <h1>Foundation</h1>
+    <!-- =========================================
+         HERO
+    ========================================= -->
+
+    <header class="hero">
+
+        <div class="hero-label">
+            The People Behind The Organization
+        </div>
+
+        <h1 class="hero-title">
+            Foundation
+        </h1>
 
         <div class="hero-line"></div>
-    </section>
 
-    <section class="profiles">
+        <p class="hero-description">
+            Meet the individuals who built and continue to lead
+            Exceed Reality.
+        </p>
+
+    </header>
+
+
+    <!-- =========================================
+         PROFILES
+    ========================================= -->
+
+    <main class="profiles">
+
 
         <!-- KRYPTIC -->
-        <div class="profile">
-            <div class="number">01</div>
 
-            <div class="role">Founder</div>
+        <article class="profile">
 
-            <div class="name">Kryptic</div>
+            <span class="profile-number">
+                01
+            </span>
 
-            <div class="username">@krypticfnx</div>
-        </div>
+            <div class="profile-role">
+                Founder
+            </div>
+
+            <h2 class="profile-name">
+                Kryptic
+            </h2>
+
+            <p class="profile-username">
+                @krypticfnx
+            </p>
+
+        </article>
+
 
         <!-- SALZ -->
-        <div class="profile">
-            <div class="number">02</div>
 
-            <div class="role">Founder</div>
+        <article class="profile">
 
-            <div class="name">Salz</div>
+            <span class="profile-number">
+                02
+            </span>
 
-            <div class="username">@salzmgmt</div>
-        </div>
+            <div class="profile-role">
+                Founder
+            </div>
+
+            <h2 class="profile-name">
+                Salz
+            </h2>
+
+            <p class="profile-username">
+                @salzmgmt
+            </p>
+
+        </article>
+
 
         <!-- LINX -->
-        <div class="profile">
-            <div class="number">03</div>
 
-            <div class="role">Founder</div>
+        <article class="profile">
 
-            <div class="name">Linx</div>
+            <span class="profile-number">
+                03
+            </span>
 
-            <div class="username">@linx3fn</div>
-        </div>
+            <div class="profile-role">
+                Founder
+            </div>
+
+            <h2 class="profile-name">
+                Linx
+            </h2>
+
+            <p class="profile-username">
+                @linx3fn
+            </p>
+
+        </article>
+
 
         <!-- OZTIX -->
-        <div class="profile">
-            <div class="number">04</div>
 
-            <div class="role">Co-Owner</div>
+        <article class="profile">
 
-            <div class="name">Oztix</div>
+            <span class="profile-number">
+                04
+            </span>
 
-            <div class="username">@oztixmgmt</div>
-        </div>
+            <div class="profile-role">
+                Co-Owner
+            </div>
+
+            <h2 class="profile-name">
+                Oztix
+            </h2>
+
+            <p class="profile-username">
+                @oztixmgmt
+            </p>
+
+        </article>
+
 
         <!-- COZ -->
-        <div class="profile">
-            <div class="number">05</div>
 
-            <div class="role">Owner</div>
+        <article class="profile">
 
-            <div class="name">Coz</div>
+            <span class="profile-number">
+                05
+            </span>
 
-            <div class="username">@coz365</div>
-        </div>
+            <div class="profile-role">
+                Owner
+            </div>
+
+            <h2 class="profile-name">
+                Coz
+            </h2>
+
+            <p class="profile-username">
+                @coz365
+            </p>
+
+        </article>
+
 
         <!-- BXNDZ -->
-        <div class="profile">
-            <div class="number">06</div>
 
-            <div class="role">CEO</div>
+        <article class="profile">
 
-            <div class="name">Bxndz</div>
+            <span class="profile-number">
+                06
+            </span>
 
-            <div class="username">@ceobxndz</div>
-        </div>
+            <div class="profile-role">
+                CEO
+            </div>
 
-    </section>
+            <h2 class="profile-name">
+                Bxndz
+            </h2>
 
-    <footer>
-        <span>Exceed Reality</span>
-        <span>© 2026 All Rights Reserved</span>
+            <p class="profile-username">
+                @ceobxndz
+            </p>
+
+        </article>
+
+
+    </main>
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="footer">
+
+        <span>
+            Exceed Reality
+        </span>
+
+        <span>
+            © 2026 All Rights Reserved
+        </span>
+
     </footer>
+
 
 </body>
 </html>
