@@ -145,3 +145,24 @@ footer h4 { color: var(--cyan); font-size: 10px; letter-spacing: 3px; margin-bot
   .multi-buttons, .code-box { flex-direction: column; }
   .code-box span { padding: 15px; }
 }
+.discord-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  margin-top: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  background: transparent;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  transition: all 0.25s ease;
+}
+
+.discord-button:hover {
+  background: #5865F2;
+  border-color: #5865F2;
+  transform: translateY(-2px);
+}
