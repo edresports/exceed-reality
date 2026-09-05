@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,14 +38,14 @@
       background:
         linear-gradient(
           145deg,
-          rgba(8,31,49,.93),
-          rgba(3,12,21,.94)
+          rgba(8, 31, 49, .93),
+          rgba(3, 12, 21, .94)
         );
 
       border: 1px solid var(--border);
       border-radius: 10px;
 
-      box-shadow: 0 20px 60px rgba(0,0,0,.22);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, .22);
 
       overflow: hidden;
 
@@ -57,10 +57,11 @@
 
     .foundation-card:hover {
       transform: translateY(-5px);
-      border-color: rgba(102,217,255,.62);
+
+      border-color: rgba(102, 217, 255, .62);
 
       box-shadow:
-        0 18px 50px rgba(0,157,245,.12);
+        0 18px 50px rgba(0, 157, 245, .12);
     }
 
     .foundation-number {
@@ -71,7 +72,8 @@
       font-size: 55px;
       font-weight: 900;
 
-      color: rgba(102,217,255,.07);
+      color: rgba(102, 217, 255, .07);
+
       line-height: 1;
     }
 
@@ -106,7 +108,9 @@
       letter-spacing: .5px;
     }
 
-    /* Small cyan accent */
+    /* =========================================
+       CYAN ACCENT
+       ========================================= */
 
     .foundation-card::before {
       content: "";
@@ -119,12 +123,13 @@
       width: 100%;
       height: 2px;
 
-      background: linear-gradient(
-        90deg,
-        transparent,
-        var(--cyan),
-        transparent
-      );
+      background:
+        linear-gradient(
+          90deg,
+          transparent,
+          var(--cyan),
+          transparent
+        );
 
       opacity: .35;
 
@@ -135,7 +140,9 @@
       opacity: 1;
     }
 
-    /* Mobile */
+    /* =========================================
+       MOBILE
+       ========================================= */
 
     @media (max-width: 850px) {
       .foundation-grid {
@@ -146,6 +153,7 @@
     @media (max-width: 560px) {
       .foundation-grid {
         grid-template-columns: 1fr;
+
         padding-top: 55px;
         padding-bottom: 75px;
       }
@@ -165,24 +173,58 @@
        ========================================= -->
 
   <header class="navbar">
+
     <div class="nav-container">
 
-  <a href="index.html" class="brand">
-    <img src="images/logo.png" alt="Exceed Reality Logo">
-    <span>EXCEED REALITY</span>
-  </a>
+      <!-- BRAND -->
 
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="roster.html">Roster</a>
-    <a class="active" href="foundation.html">Foundation</a>
-    <a href="sponsors.html">Sponsors</a>
-    <a href="index.html#inbox">Inbox</a>
-  </nav>
+      <a href="index.html" class="brand">
 
-</div>
+        <img
+          src="images/logo.png"
+          alt="Exceed Reality Logo"
+        >
+
+        <span>
+          EXCEED REALITY
+        </span>
+
+      </a>
+
+
+      <!-- NAVIGATION LINKS -->
+
+      <nav>
+
+        <a href="index.html">
+          Home
+        </a>
+
+        <a href="roster.html">
+          Roster
+        </a>
+
+        <a href="sponsors.html">
+          Sponsors
+        </a>
+
+        <a
+          class="active"
+          href="foundation.html"
+        >
+          Foundation
+        </a>
+
+        <a href="contact.html">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
 
   </header>
+
 
   <!-- =========================================
        PAGE HEADER
@@ -190,15 +232,20 @@
 
   <section class="page-header">
 
-<p>THE PEOPLE BEHIND THE ORGANIZATION</p>
+    <p>
+      THE PEOPLE BEHIND THE ORGANIZATION
+    </p>
 
-<h1>FOUNDATION</h1>
+    <h1>
+      FOUNDATION
+    </h1>
 
-<span>
-  The individuals who helped build Exceed Reality.
-</span>
+    <span>
+      The individuals who helped build Exceed Reality.
+    </span>
 
   </section>
+
 
   <!-- =========================================
        FOUNDATION PROFILES
@@ -206,237 +253,299 @@
 
   <main>
 
-
-<section class="foundation-grid">
-
-  <!-- KRYPTIC -->
-  <article class="foundation-card">
-    <span class="foundation-number">01</span>
-
-    <div class="foundation-role">
-      Founder
-    </div>
-
-    <h2 class="foundation-name">
-      EDR Kryptic
-    </h2>
-
-    <p class="foundation-username">
-      @krypticfnx | Head of Technology
-    </p>
-  </article>
+    <section class="foundation-grid">
 
 
-  <!-- SALZ -->
-  <article class="foundation-card">
-    <span class="foundation-number">02</span>
+      <!-- =====================================
+           KRYPTIC
+           ===================================== -->
 
-    <div class="foundation-role">
-      Founder
-    </div>
+      <article class="foundation-card">
 
-    <h2 class="foundation-name">
-      EDR Salz
-    </h2>
+        <span class="foundation-number">
+          01
+        </span>
 
-    <p class="foundation-username">
-      @salzmgmt | Head of Public Relations
-    </p>
-  </article>
+        <div class="foundation-role">
+          Founder
+        </div>
 
+        <h2 class="foundation-name">
+          EDR Kryptic
+        </h2>
 
-  <!-- LINX -->
-  <article class="foundation-card">
-    <span class="foundation-number">03</span>
+        <p class="foundation-username">
+          @krypticfnx | Head of Technology
+        </p>
 
-    <div class="foundation-role">
-      Founder
-    </div>
-
-    <h2 class="foundation-name">
-      EDR Linx
-    </h2>
-
-    <p class="foundation-username">
-      @linx3fn | Head of Finance
-    </p>
-  </article>
+      </article>
 
 
-  <!-- OZTIX -->
-  <article class="foundation-card">
-    <span class="foundation-number">04</span>
+      <!-- =====================================
+           SALZ
+           ===================================== -->
 
-    <div class="foundation-role">
-      Co-Owner
-    </div>
+      <article class="foundation-card">
 
-    <h2 class="foundation-name">
-      EDR Oztix
-    </h2>
+        <span class="foundation-number">
+          02
+        </span>
 
-    <p class="foundation-username">
-      @oztixmgmt | Head of Staff
-    </p>
-  </article>
+        <div class="foundation-role">
+          Founder
+        </div>
 
+        <h2 class="foundation-name">
+          EDR Salz
+        </h2>
 
-  <!-- COZ -->
-  <article class="foundation-card">
-    <span class="foundation-number">05</span>
+        <p class="foundation-username">
+          @salzmgmt | Head of Public Relations
+        </p>
 
-    <div class="foundation-role">
-      Owner
-    </div>
-
-    <h2 class="foundation-name">
-     EDR Coz
-    </h2>
-
-    <p class="foundation-username">
-      @coz365 | Head of Talents
-    </p>
-  </article>
+      </article>
 
 
-  <!-- BXNDZ -->
-  <article class="foundation-card">
-    <span class="foundation-number">06</span>
+      <!-- =====================================
+           LINX
+           ===================================== -->
 
-    <div class="foundation-role">
-      CEO
-    </div>
+      <article class="foundation-card">
 
-    <h2 class="foundation-name">
-     EDR Bxndz
-    </h2>
+        <span class="foundation-number">
+          03
+        </span>
 
-    <p class="foundation-username">
-      @ceobxndz | Chief Executive Officer
-    </p>
-  </article>
+        <div class="foundation-role">
+          Founder
+        </div>
 
-</section>
+        <h2 class="foundation-name">
+          EDR Linx
+        </h2>
 
+        <p class="foundation-username">
+          @linx3fn | Head of Finance
+        </p>
+
+      </article>
+
+
+      <!-- =====================================
+           OZTIX
+           ===================================== -->
+
+      <article class="foundation-card">
+
+        <span class="foundation-number">
+          04
+        </span>
+
+        <div class="foundation-role">
+          Co-Owner
+        </div>
+
+        <h2 class="foundation-name">
+          EDR Oztix
+        </h2>
+
+        <p class="foundation-username">
+          @oztixmgmt | Head of Staff
+        </p>
+
+      </article>
+
+
+      <!-- =====================================
+           COZ
+           ===================================== -->
+
+      <article class="foundation-card">
+
+        <span class="foundation-number">
+          05
+        </span>
+
+        <div class="foundation-role">
+          Owner
+        </div>
+
+        <h2 class="foundation-name">
+          EDR Coz
+        </h2>
+
+        <p class="foundation-username">
+          @coz365 | Head of Talents
+        </p>
+
+      </article>
+
+
+      <!-- =====================================
+           BXNDZ
+           ===================================== -->
+
+      <article class="foundation-card">
+
+        <span class="foundation-number">
+          06
+        </span>
+
+        <div class="foundation-role">
+          CEO
+        </div>
+
+        <h2 class="foundation-name">
+          EDR Bxndz
+        </h2>
+
+        <p class="foundation-username">
+          @ceobxndz | Chief Executive Officer
+        </p>
+
+      </article>
+
+
+    </section>
 
   </main>
+
 
   <!-- =========================================
        FOOTER
        ========================================= -->
 
-  <footer id="inbox">
+  <footer>
+
+    <div class="footer-grid">
 
 
-<div class="footer-grid">
+      <!-- BRAND -->
 
-  <div>
+      <div>
 
-    <div class="footer-brand">
+        <div class="footer-brand">
 
-      <img
-        src="images/logo.png"
-        alt="Exceed Reality Logo"
-      >
+          <img
+            src="images/logo.png"
+            alt="Exceed Reality Logo"
+          >
 
-      <h3>
-        EXCEED REALITY
-      </h3>
+          <h3>
+            EXCEED REALITY
+          </h3>
+
+        </div>
+
+        <p class="muted">
+          Where the ability to Exceed Reality is at your finger tips.
+        </p>
+
+      </div>
+
+
+      <!-- SOCIALS -->
+
+      <div>
+
+        <h4>
+          FOLLOW US
+        </h4>
+
+        <div class="social-buttons">
+
+
+          <!-- TWITTER / X -->
+
+          <a
+            href="https://x.com/EDREsports"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Twitter / X
+          </a>
+
+
+          <!-- YOUTUBE -->
+
+          <a
+            href="https://www.youtube.com/@Exceedreality2x"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            YouTube
+          </a>
+
+
+          <!-- TIKTOK -->
+
+          <a
+            href="https://www.tiktok.com/@prismrgn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            TikTok
+          </a>
+
+
+          <!-- DISCORD -->
+
+          <a
+            href="https://discord.gg/exceedreality"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            JOIN OUR DISCORD
+          </a>
+
+
+        </div>
+
+      </div>
+
+
+      <!-- CONTACT -->
+
+      <div>
+
+        <h4>
+          CONTACT
+        </h4>
+
+        <p class="muted">
+          Business inquiries and general contact:
+        </p>
+
+        <a
+          class="email-button"
+          href="mailto:exceedreality@outlook.com"
+        >
+          exceedreality@outlook.com
+        </a>
+
+      </div>
+
 
     </div>
 
-    <p class="muted">
-      Where the ability to Exceed Reality is at your finger tips.
-    </p>
 
-  </div>
+    <!-- COPYRIGHT -->
 
+    <div class="copyright">
 
-  <div>
-
-    <h4>
-      FOLLOW US
-    </h4>
-
-    <div class="social-buttons">
-
-      <a
-        href="https://x.com/EDREsports"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        Twitter / X
-      </a>
-
-      <a
-        href="https://www.youtube.com/@Exceedreality2x"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        YouTube
-      </a>
-
-      <a
-        href="https://www.tiktok.com/@prismrgn"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        TikTok
-      </a>
-
-
-
-      
-      <!-- DISCORD -->
-
-      <a
-        href="https://discord.gg/exceedreality"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        
-        
-        JOIN OUR DISCORD
-      </a>
+      ©
+      <span id="year"></span>
+      Exceed Reality. All Rights Reserved.
 
     </div>
-
-  </div>
-
-
-  <div>
-
-    <h4>
-      INBOX
-    </h4>
-
-    <p class="muted">
-      Business inquiries and general contact:
-    </p>
-
-    <a
-      class="email-button"
-      href="mailto:exceedreality@outlook.com"
-    >
-      exceedreality@outlook.com
-    </a>
-
-  </div>
-
-</div>
-
-
-<div class="copyright">
-
-  © <span id="year"></span>
-  Exceed Reality. All Rights Reserved.
-
-</div>
 
 
   </footer>
 
-  <!-- Existing website JavaScript -->
+
+  <!-- =========================================
+       JAVASCRIPT
+       ========================================= -->
 
   <script src="script.js"></script>
 
@@ -445,6 +554,6 @@
       new Date().getFullYear();
   </script>
 
+
 </body>
 </html>
-
