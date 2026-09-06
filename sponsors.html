@@ -17,6 +17,53 @@
   <title>Sponsors | Exceed Reality</title>
 
   <link rel="stylesheet" href="style.css">
+
+  <style>
+
+    /* =========================================
+       SPONSOR IMAGE
+       ========================================= */
+
+    .sponsor-image-wrapper {
+      margin-top: 28px;
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+    }
+
+    .sponsor-image {
+      width: 100%;
+      max-width: 1100px;
+      height: auto;
+
+      display: block;
+
+      border-radius: 10px;
+
+      border:
+        1px solid
+        rgba(102, 217, 255, .18);
+
+      box-shadow:
+        0 18px 50px
+        rgba(0, 0, 0, .28);
+    }
+
+    @media (max-width: 600px) {
+
+      .sponsor-image-wrapper {
+        margin-top: 20px;
+      }
+
+      .sponsor-image {
+        border-radius: 7px;
+      }
+
+    }
+
+  </style>
+
 </head>
 
 
@@ -115,7 +162,9 @@
     <section class="section sponsor-section">
 
 
-      <!-- RISXN TWEAKS -->
+      <!-- =====================================
+           TILTED TWEAKS
+           ===================================== -->
 
       <article class="sponsor-card">
 
@@ -132,7 +181,9 @@
         </p>
 
 
-        <!-- SPONSOR LINK -->
+        <!-- ===================================
+             SPONSOR LINK
+             =================================== -->
 
         <a
           class="button primary"
@@ -144,7 +195,9 @@
         </a>
 
 
-        <!-- DISCOUNT CODE -->
+        <!-- ===================================
+             DISCOUNT CODE
+             =================================== -->
 
         <div class="code-box">
 
@@ -162,13 +215,31 @@
         </div>
 
 
-        <!-- COPY CONFIRMATION -->
+        <!-- ===================================
+             COPY CONFIRMATION
+             =================================== -->
 
         <p
           id="copy-message"
           class="copy-message"
           aria-live="polite"
         ></p>
+
+
+        <!-- ===================================
+             TILTED TWEAKS IMAGE
+             =================================== -->
+
+        <div class="sponsor-image-wrapper">
+
+          <img
+            class="sponsor-image"
+            src="images/tilted-tweaks-banner.png"
+            alt="Tilted Tweaks competitive system performance banner"
+          >
+
+        </div>
+
 
       </article>
 
@@ -345,65 +416,92 @@
       document.getElementById("copy-message");
 
 
-    copyButton.addEventListener("click", async function () {
+    copyButton.addEventListener(
+      "click",
+      async function () {
 
-      const code = discountCode.textContent.trim();
+        const code =
+          discountCode.textContent.trim();
 
-      try {
 
-        await navigator.clipboard.writeText(code);
+        try {
 
-        copyButton.textContent = "COPIED!";
+          await navigator.clipboard.writeText(code);
 
-        copyMessage.textContent =
-          "EDRWIN copied to your clipboard.";
+          copyButton.textContent =
+            "COPIED!";
 
-        setTimeout(function () {
+          copyMessage.textContent =
+            code + " copied to your clipboard.";
 
-          copyButton.textContent = "COPY CODE";
 
-          copyMessage.textContent = "";
+          setTimeout(
+            function () {
 
-        }, 2500);
+              copyButton.textContent =
+                "COPY CODE";
+
+              copyMessage.textContent =
+                "";
+
+            },
+            2500
+          );
+
+        }
+
+
+        catch (error) {
+
+          /*
+            FALLBACK FOR OLDER BROWSERS
+          */
+
+          const temporaryInput =
+            document.createElement("textarea");
+
+          temporaryInput.value =
+            code;
+
+          document.body.appendChild(
+            temporaryInput
+          );
+
+          temporaryInput.select();
+
+          document.execCommand(
+            "copy"
+          );
+
+          document.body.removeChild(
+            temporaryInput
+          );
+
+
+          copyButton.textContent =
+            "COPIED!";
+
+          copyMessage.textContent =
+            code + " copied to your clipboard.";
+
+
+          setTimeout(
+            function () {
+
+              copyButton.textContent =
+                "COPY CODE";
+
+              copyMessage.textContent =
+                "";
+
+            },
+            2500
+          );
+
+        }
 
       }
-
-      catch (error) {
-
-        /*
-          Fallback for browsers where the
-          Clipboard API is unavailable.
-        */
-
-        const temporaryInput =
-          document.createElement("textarea");
-
-        temporaryInput.value = code;
-
-        document.body.appendChild(temporaryInput);
-
-        temporaryInput.select();
-
-        document.execCommand("copy");
-
-        document.body.removeChild(temporaryInput);
-
-        copyButton.textContent = "COPIED!";
-
-        copyMessage.textContent =
-          "EDRWIN copied to your clipboard.";
-
-        setTimeout(function () {
-
-          copyButton.textContent = "COPY CODE";
-
-          copyMessage.textContent = "";
-
-        }, 2500);
-
-      }
-
-    });
+    );
 
   </script>
 
