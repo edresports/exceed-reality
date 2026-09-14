@@ -21,7 +21,18 @@
   <style>
 
     /* =========================================
-       SPONSOR IMAGE
+       SPONSOR SECTION
+       ========================================= */
+
+    .sponsor-section {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+
+    /* =========================================
+       SPONSOR LOGOS / IMAGES
        ========================================= */
 
     .sponsor-image-wrapper {
@@ -30,6 +41,7 @@
 
       display: flex;
       justify-content: center;
+      align-items: center;
     }
 
     .sponsor-image {
@@ -50,14 +62,62 @@
         rgba(0, 0, 0, .28);
     }
 
+
+    /* =========================================
+       ATK GEAR LOGO
+       ========================================= */
+
+    .atk-logo-wrapper {
+      margin-top: 28px;
+      width: 100%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 35px 20px;
+
+      background: #000000;
+
+      border-radius: 10px;
+
+      border:
+        1px solid
+        rgba(102, 217, 255, .18);
+
+      box-shadow:
+        0 18px 50px
+        rgba(0, 0, 0, .28);
+    }
+
+    .atk-logo {
+      width: 100%;
+      max-width: 700px;
+      height: auto;
+
+      display: block;
+      object-fit: contain;
+    }
+
+
+    /* =========================================
+       MOBILE
+       ========================================= */
+
     @media (max-width: 600px) {
 
-      .sponsor-image-wrapper {
+      .sponsor-image-wrapper,
+      .atk-logo-wrapper {
         margin-top: 20px;
       }
 
-      .sponsor-image {
+      .sponsor-image,
+      .atk-logo-wrapper {
         border-radius: 7px;
+      }
+
+      .atk-logo-wrapper {
+        padding: 25px 15px;
       }
 
     }
@@ -181,9 +241,7 @@
         </p>
 
 
-        <!-- ===================================
-             SPONSOR LINK
-             =================================== -->
+        <!-- SPONSOR LINK -->
 
         <a
           class="button primary"
@@ -195,18 +253,16 @@
         </a>
 
 
-        <!-- ===================================
-             DISCOUNT CODE
-             =================================== -->
+        <!-- DISCOUNT CODE -->
 
         <div class="code-box">
 
-          <span id="discount-code">
+          <span class="discount-code">
             EDRGGS
           </span>
 
           <button
-            id="copy-code"
+            class="copy-code"
             type="button"
           >
             COPY CODE
@@ -215,20 +271,15 @@
         </div>
 
 
-        <!-- ===================================
-             COPY CONFIRMATION
-             =================================== -->
+        <!-- COPY CONFIRMATION -->
 
         <p
-          id="copy-message"
           class="copy-message"
           aria-live="polite"
         ></p>
 
 
-        <!-- ===================================
-             TILTED TWEAKS IMAGE
-             =================================== -->
+        <!-- TILTED TWEAKS IMAGE -->
 
         <div class="sponsor-image-wrapper">
 
@@ -240,6 +291,77 @@
 
         </div>
 
+      </article>
+
+
+      <!-- =====================================
+           ATK GEAR
+           ===================================== -->
+
+      <article class="sponsor-card">
+
+        <div class="sponsor-label">
+          OFFICIAL PARTNER
+        </div>
+
+        <h2>
+          ATK GEAR
+        </h2>
+
+        <p>
+          Upgrade your gear with ATK Gear!
+        </p>
+
+
+        <!-- SPONSOR LINK -->
+
+        <a
+          class="button primary"
+          href="https://www.atk.store/?ref=EXCEEDREALITY"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          VISIT ATK GEAR
+        </a>
+
+
+        <!-- DISCOUNT CODE -->
+
+        <div class="code-box">
+
+          <span class="discount-code">
+            EXCEEDREALITY
+          </span>
+
+          <button
+            class="copy-code"
+            type="button"
+          >
+            COPY CODE
+          </button>
+
+        </div>
+
+
+        <!-- COPY CONFIRMATION -->
+
+        <p
+          class="copy-message"
+          aria-live="polite"
+        ></p>
+
+
+        <!-- ATK GEAR LOGO -->
+
+        <div class="atk-logo-wrapper">
+
+          <img
+            class="atk-logo"
+            src="images/atk-gear-logo.png"
+            alt="ATK Gear Logo"
+          >
+
+        </div>
 
       </article>
 
@@ -414,105 +536,109 @@
 
 
     /* =========================================
-       COPY DISCOUNT CODE
+       COPY SPONSOR CODES
        ========================================= */
 
-    const copyButton =
-      document.getElementById("copy-code");
+    document
+      .querySelectorAll(".sponsor-card")
+      .forEach(function (card) {
 
-    const discountCode =
-      document.getElementById("discount-code");
+        const copyButton =
+          card.querySelector(".copy-code");
 
-    const copyMessage =
-      document.getElementById("copy-message");
+        const discountCode =
+          card.querySelector(".discount-code");
 
-
-    copyButton.addEventListener(
-      "click",
-      async function () {
-
-        const code =
-          discountCode.textContent.trim();
+        const copyMessage =
+          card.querySelector(".copy-message");
 
 
-        try {
-
-          await navigator.clipboard.writeText(code);
-
-          copyButton.textContent =
-            "COPIED!";
-
-          copyMessage.textContent =
-            code + " copied to your clipboard.";
-
-
-          setTimeout(
-            function () {
-
-              copyButton.textContent =
-                "COPY CODE";
-
-              copyMessage.textContent =
-                "";
-
-            },
-            2500
-          );
-
+        if (
+          !copyButton ||
+          !discountCode ||
+          !copyMessage
+        ) {
+          return;
         }
 
 
-        catch (error) {
+        copyButton.addEventListener(
+          "click",
+          async function () {
 
-          /*
-            FALLBACK FOR OLDER BROWSERS
-          */
-
-          const temporaryInput =
-            document.createElement("textarea");
-
-          temporaryInput.value =
-            code;
-
-          document.body.appendChild(
-            temporaryInput
-          );
-
-          temporaryInput.select();
-
-          document.execCommand(
-            "copy"
-          );
-
-          document.body.removeChild(
-            temporaryInput
-          );
+            const code =
+              discountCode.textContent.trim();
 
 
-          copyButton.textContent =
-            "COPIED!";
+            try {
 
-          copyMessage.textContent =
-            code + " copied to your clipboard.";
-
-
-          setTimeout(
-            function () {
+              await navigator.clipboard.writeText(code);
 
               copyButton.textContent =
-                "COPY CODE";
+                "COPIED!";
 
               copyMessage.textContent =
-                "";
+                code + " copied to your clipboard.";
 
-            },
-            2500
-          );
+            }
 
-        }
+            catch (error) {
 
-      }
-    );
+              /*
+                FALLBACK COPY METHOD
+              */
+
+              const temporaryInput =
+                document.createElement("textarea");
+
+              temporaryInput.value =
+                code;
+
+              document.body.appendChild(
+                temporaryInput
+              );
+
+              temporaryInput.select();
+
+              document.execCommand(
+                "copy"
+              );
+
+              document.body.removeChild(
+                temporaryInput
+              );
+
+
+              copyButton.textContent =
+                "COPIED!";
+
+              copyMessage.textContent =
+                code + " copied to your clipboard.";
+
+            }
+
+
+            /*
+              RESET BUTTON
+            */
+
+            setTimeout(
+              function () {
+
+                copyButton.textContent =
+                  "COPY CODE";
+
+                copyMessage.textContent =
+                  "";
+
+              },
+              2500
+            );
+
+          }
+        );
+
+      });
 
   </script>
 
